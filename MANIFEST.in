@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include prettofood *.css
+recursive-include prettofood *.csv
+recursive-include prettofood *.html
+recursive-include prettofood *.ico
+recursive-include prettofood *.js
+recursive-include prettofood *.json
+recursive-include prettofood *.md
+recursive-include prettofood *.png
+recursive-include prettofood *.py
+recursive-include prettofood *.svg
+recursive-include prettofood *.txt
+recursive-exclude prettofood *.pyc
