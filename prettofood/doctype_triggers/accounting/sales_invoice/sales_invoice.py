@@ -40,7 +40,8 @@ def on_update(doc, method=None):
 
 # method to make taxes JV
 @frappe.whitelist()
-def validate_taxe_type(self):
+def validate_taxe_type(name):
+    self = frappe.get_doc("Sales Invoice", name)
     if self.tax_type == "Included":
         for y in self.items:
             group = y.item_group
@@ -193,7 +194,8 @@ def make_tax(name):
     self.reload()
 
 @frappe.whitelist()
-def cancel_tax(self):
+def cancel_tax(name):
+    self = frappe.get_doc("Sales Invoice", name)
     if self.deferred_tax_jv or self.serial:
         inv = frappe.get_doc('Sales Invoice', self.name)
         inv.deferred_tax_jv = ""
